@@ -1,0 +1,152 @@
+#summary Overview on SemCAE suite software architecture
+
+= Rich Client Platform =
+
+[[image:richclient.PNG]]
+
+Built on top of [http://wiki.eclipse.org/index.php/Rich_Client_Platform Eclipse RCP], which enables SemCAE to become a rich client and by being itself an OSGi container to integrate a myriad of image management related plugins to be developed progressively by a growing community.
+
+These are the main attributes of a rich client:
+
+* Rich user experience 
+* Typically (though not necessarily) a client for some backend service
+* Platform independent
+** Runs with little or no modification on multiple platforms and devices
+* Component model
+* Integrated update mechanism
+* Extensible
+* A consistent and native look and feel across applications and features
+* Provides common application services 
+** Standardized component model (Equinox)
+** Pervasive extensibility – Extension registry
+** Native look and feel (SWT)
+** Window management
+** Help system
+** Update Manager
+* First-class development tools
+* Middleware for building rich client applications!
+** Allows programmers to focus on core application not the plumbing
+** Don’t reinvent the wheel
+
+For the user interface it shall make heavy use of SWT, JFace and Forms, providing a consistent and native look and feel across many platforms.
+
+== References ==
+
+* [http://www.eclipse.org/articles/Article-SWT-Virtual/Virtual-in-SWT.html Virtual trees]
+
+= Extensions =
+
+[[image:plugins.PNG]] 
+
+* Are defined in the manifest (plugin.xml)
+* Hook into extension points
+* Provide information as required 
+* For example, ...
+
+== List of extensions ==
+
+* ''net.SemCAE.rpcserver'': Exposes ''net.SemCAE.imgdb'' through XML-RPC, SOAP, JSON-RPC, RMI, and other RPC interfaces.
+* ''net.SemCAE.rpcserver.app'': Headless RCP app, depends on ''net.SemCAE.rpcserver''.
+* ''net.SemCAE.ui'': Common user interface. Main desktop/endusers app entry point.
+* ''net.SemCAE.webserver'': Includes Jetty or Tomcat servlet containers. Exposes ''net.SemCAE.imgdb'' through a GWT-based web interface.
+
+== Registry ==
+
+At runtime, Eclipse gathers the extension points and extension into the registry where plug-in can find them
+
+Plug-in explicitly get extensions to their extension points from the extension registry
+
+Plug-ins are only loaded only when needed
+
+Example: extension to org.eclipse.ui.popupMenus 
+
+Manifest information is used to create the menu
+
+When the menu is selected, the plug-in is loaded and the “behavior” class is instantiated
+
+== SemCAE as an Integration Point ==
+
+The diagram below shows how the SemCAE platform is built on top of basic Eclipse RCP building blocks.
+
+[[image:platform.PNG|none|thumb|150px]]
+
+SemCAE as a platform can be considered as a series of OSGi plugins/componentes running on a common runtime (an OSGi container).
+
+* Integrating completely independent components is easy
+** Views from independent components can easily share the workspace
+** Menus populated by multiple components
+* Integrating loosely coupled components requires planning
+** Sharing selection information
+** Drag and drop between views from different components
+** Extension point/extension mechanism for more intimate integration
+*** Not artificially restricted in any way: non-gui extension points can be used to provide all types of extensions
+
+= User interface =
+
+Example of an image handling application based on Eclipse RCP. [[image:Maestro.jpg|none|thumb|150px]]
+
+== Perspectives ==
+
+* Library
+* Develop
+* View
+* Export
+
+== Views ==
+
+* Working set
+* Library explorer
+* Console
+
+== Editors ==
+
+* Library editor
+* Set editor
+
+== Navigation ==
+
+* [http://www.eclipsezone.com/articles/efs/ Eclipse File System]
+* [http://scribbledideas.blogspot.com/2006/05/building-common-navigator-based-viewer.html Navigator example]
+
+== Branding ==
+
+* [http://www.richclient2.eu/2007_04_16/customizing-the-ui-in-small-rcp-projects/ Customizing the UI in small RCP Projects]
+
+== Related research ==
+
+* POSCCaesasr
+
+= Data management =
+
+Built-in RDBMS: [http://db.apache.org/derby/ Apache Derby].
+
+Also investigating [http://www.db4o.com/community/ db4o].
+
+References:
+
+* [http://www-128.ibm.com/developerworks/opensource/library/os-ad-eclipse/?ca=dgr-lnxw07EclipsePI Use Apache Derby to develop Eclipse plug-ins]
+* [http://db.apache.org/derby/integrate/derby_plugin.html Derby Eclipse plugin]
+
+= Spring OSGi =
+
+The Spring-OSGi project makes it easy to build Spring applications that run in an OSGi framework. A Spring application written in this way provides better separation of modules, the ability to dynamically add, remove, and update modules in a running system, the ability to deploy multiple versions of a module simultaneously (and have clients automatically bind to the appropriate one), and a dynamic service model.
+
+Watch: http://r.vresp.com/?TheJavacommunity/8b78d0024d/833488/df862dfd4b/c97cd5e
+
+= Development Methodology =
+
+Domain-Driven Design: Tackling Complexity in Software, Addison-Wesley 2004, explains in this interview what Domain-Driven Design (DDD) really is. He also discusses with Ted Neward (our JavaPolis 2006 interviewer) how you can compare DDD to Object Modeling and what he thinks of Naked Objects.
+
+Watch: http://r.vresp.com/?TheJavacommunity/175268f7c6/833488/df862dfd4b/c97cd5e
+
+= Scripting =
+
+References:
+
+* [http://jepp.sourceforge.net/ Java Embedded Python] - Jepp embeds CPython in Java. It is safe to use in a heavily threaded environment, it is quite fast and its stability is a main feature and goal. 
+* BeanShell
+
+= Related software =
+
+* [http://www.comos.com/ COMOS] - Life Cycle Asset Information Management system from Innotec (now part of Siemens and renamed to COMOS Industry Solutions)
+* [http://www.intergraph.com/products/ppm/smartplant/default.aspx SmartPlant] - product suite offering increasing value from IT in order to improve project execution, handover, and plant operational efficiency
