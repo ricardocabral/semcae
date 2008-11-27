@@ -1,4 +1,7 @@
 #summary Overview on SemCAE suite software architecture
+#sidebar SemCAEOverviewDocs
+= Contents =
+<wiki:toc max_depth="2" />
 
 = Rich Client Platform =
 
