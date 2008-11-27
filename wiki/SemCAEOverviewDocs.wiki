@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Overview of the most important documents
 
   * About
     * [SemCAEVision	SemCAE project vision and detailed roadmap]
@@ -8,4 +8,3 @@
     * [SemCAEArchitecture Software architecture]
     * [SemCAEDevelopmentNotes	Development notes]
   * [SemCAECredits Credits]
-
