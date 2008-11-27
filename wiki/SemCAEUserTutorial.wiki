@@ -1,4 +1,7 @@
 #summary Overview tutorial for end users
+#sidebar SemCAEOverviewDocs
+= Contents =
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
