@@ -1,4 +1,4 @@
-#summary SemCAE project vision
+#summary SemCAE project vision and detailed roadmap
 
 = Introduction =
 
