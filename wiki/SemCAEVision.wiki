@@ -1,4 +1,7 @@
 #summary SemCAE project vision and detailed roadmap
+#sidebar SemCAEOverviewDocs
+= Contents =
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
