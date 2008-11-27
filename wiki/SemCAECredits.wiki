@@ -1,3 +1,11 @@
-#summary Authors
+#summary Credits for the SemCAE suite. Thanks everyone who contributed!
+
+= Developers =
 
  * [http://isnotworking.com/ Ricardo Niederberger Cabral]
+
+= Testing/QA =
+
+= Translation =
+
+= Documentation =
