@@ -1,4 +1,5 @@
 #summary Credits for the SemCAE suite. Thanks everyone who contributed!
+#sidebar SemCAEOverviewDocs
 
 = Developers =
 
