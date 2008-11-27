@@ -1,4 +1,7 @@
 #summary Development common tasks
+#sidebar SemCAEOverviewDocs
+= Contents =
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
