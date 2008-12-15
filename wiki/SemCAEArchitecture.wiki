@@ -121,6 +121,16 @@ Example of an image handling application based on Eclipse RCP. [[image:Maestro.j
 
 = Data management =
 
+For solving the problem of having distributed teams working on the same engineering models one could persist underlying engineering models and drawing as text-based YAML and having them merged/syncronized with Git. The rich client application would be a frontend to Git.
+
+== Semantic-enabled data storages ==
+
+ * Vertica
+ * OpenSesame
+ * ....?
+
+== Generic data storages ==
+
 Built-in RDBMS: [http://db.apache.org/derby/ Apache Derby].
 
 Also investigating [http://www.db4o.com/community/ db4o].
